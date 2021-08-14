@@ -1,0 +1,33 @@
+dist: xenial
+
+language: php
+
+php:
+  - "7.3"
+
+before_install:
+  - nvm install
+  - nvm use
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm run test-with-coverage
+
+after_success:
+  - npm run report-coverage
+
+notifications:
+  email: false
+
+# Pull requests are built by default.
+branches:
+  only:
+  - master
+
+cache:
+  npm: true
+  directories:
+    - $HOME/.composer/cache

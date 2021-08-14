@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "site-counts/site-counts",
+	"title": "Site Counts",
+	"description": "Counts of posts and taxonomies",
+	"category": "widgets",
+	"icon": "visibility",
+	"keywords": [
+		"data",
+		"statistics"
+	],
+	"textdomain": "site-counts",
+	"editorScript": "file:./js/dist/index.js",
+	"usesContext": [ "postId" ]
+}

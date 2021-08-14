@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "plugin:@wordpress/eslint-plugin/recommended-with-formatting",
+    "plugin:@wordpress/eslint-plugin/i18n"
+  ],
+  "rules": {
+    "@wordpress/i18n-text-domain": [
+      "error",
+      {
+        "allowedTextDomain": "site-counts"
+      }
+    ]
+  }
+}
