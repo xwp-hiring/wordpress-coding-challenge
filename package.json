@@ -26,12 +26,11 @@
     "lint:php": "composer lint",
     "packages-update": "wp-scripts packages-update",
     "test": "npm-run-all --parallel test:js test:php",
-    "test-with-coverage": "npm-run-all --parallel test:js:coverage test:php:coverage",
+    "test:coverage": "npm-run-all --parallel test:js:coverage test:php:coverage",
     "test:js": "wp-scripts test-unit-js",
     "test:js:coverage": "wp-scripts test-unit-js --coverage --coverageDirectory=tests/coverage/js",
     "test:php": "composer test -- --no-coverage",
-    "test:php:coverage": "composer test",
-    "report-coverage": "composer coverage"
+    "test:php:coverage": "composer test"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.14.1",
