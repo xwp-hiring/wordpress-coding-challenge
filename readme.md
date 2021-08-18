@@ -28,7 +28,7 @@ or [Chocolatey](https://chocolatey.org) for Windows:
 
 		npm install
 
-	Note that both Node.js and PHP 7.2 or later are required on your computer for running the `npm` scripts.
+	Note that both Node.js and PHP 7.3 or later are required on your computer for running the `npm` scripts.
 
 ### Scripts
 
