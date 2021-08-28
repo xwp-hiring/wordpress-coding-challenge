@@ -21,6 +21,8 @@
 	<rule ref="PHPCompatibilityWP" />
 	<config name="testVersion" value="7.2-" />
 
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found" />
+
 	<file>.</file>
 
 	<exclude-pattern>/node_modules/</exclude-pattern>
