@@ -14,7 +14,7 @@
     "url": "git+https://github.com/xwp/site-counts.git"
   },
   "engines": {
-    "node": ">=10",
+    "node": "14",
     "npm": ">=6.9"
   },
   "scripts": {
