@@ -7,7 +7,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 /**
  * Internal dependencies
  */
-import { name } from '../../block.json';
+import block from '../../block.json';
 
 /*
  * The edit function for the block editor display.
@@ -20,7 +20,7 @@ const Edit = ( { attributes } ) => {
 
 	return (
 		<div { ...blockProps }>
-			<ServerSideRender block={ name } attributes={ attributes } />
+			<ServerSideRender block={ block.name } attributes={ attributes } />
 		</div>
 	);
 };
