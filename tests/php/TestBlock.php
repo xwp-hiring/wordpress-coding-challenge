@@ -91,7 +91,7 @@ class TestBlock extends TestCase {
 					'className'           => self::CLASS_NAME,
 					'displayTemplateMode' => true,
 				],
-				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><ul><li>There are 0 Posts.</li><li>There are 0 Pages.</li><li>There are 0 Media.</li></ul><p>The current post ID is ' . self::POST_ID . '.</p>',
+				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><ul><li>There are 0 Posts.</li><li>There are 0 Pages.</li><li>There are 0 Media.</li></ul><p>The current post ID is ' . self::POST_ID . '.</p><h2>5 posts with the tag of foo and the category of baz</h2><ul><li>Lorem Ipsum</li><li>Lorem Ipsum</li><li>Lorem Ipsum</li><li>Lorem Ipsum</li><li>Lorem Ipsum</li></ul></div>',
 			],
 			'with_post_counts' => [
 				63,
@@ -101,7 +101,7 @@ class TestBlock extends TestCase {
 					'className'           => self::CLASS_NAME,
 					'displayTemplateMode' => true,
 				],
-				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><ul><li>There are 63 Posts.</li><li>There are 13 Pages.</li><li>There are 139 Media.</li></ul><p>The current post ID is ' . self::POST_ID . '.</p>',
+				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><ul><li>There are 63 Posts.</li><li>There are 13 Pages.</li><li>There are 139 Media.</li></ul><p>The current post ID is ' . self::POST_ID . '.</p><h2>5 posts with the tag of foo and the category of baz</h2><ul><li>Lorem Ipsum</li><li>Lorem Ipsum</li><li>Lorem Ipsum</li><li>Lorem Ipsum</li><li>Lorem Ipsum</li></ul></div>',
 			],
 		];
 	}
@@ -133,18 +133,15 @@ class TestBlock extends TestCase {
 		$this->mock_get_posts( $page_count );
 		$this->mock_get_posts( $attachment_count );
 
+		$this->mock_wp_query();
+
 		Mockery::mock( 'overload:WP_Block' );
-		Mockery::mock('overload:WP_Query' )
-			->shouldReceive( 'have_posts' )
-			->andReturn( false );
+
 		$actual = $this->instance->render_callback( $attributes, '', new WP_Block() );
 		$actual = preg_replace( '/(?<=>)\s+/', '', $actual );
 		$actual = preg_replace( '/\s+(?=<)/', '', $actual );
 
-		$this->assertStringContainsString(
-			$expected,
-			$actual
-		);
+		$this->assertEquals( $expected, $actual );
 	}
 
 	/**
@@ -173,5 +170,17 @@ class TestBlock extends TestCase {
 		WP_Mock::userFunction( 'get_posts' )
 			->once()
 			->andReturn( array_fill( 0, $post_count, new stdClass() ) );
+	}
+
+	/**
+	 * Mocks WP_Query.
+	 */
+	function mock_wp_query() {
+		$mock_post             = new stdClass();
+		$mock_post->post_title = 'Lorem Ipsum';
+		$mock_wp_query         = Mockery::mock( 'overload:WP_Query' );
+		$mock_wp_query->shouldReceive( 'have_posts' )
+			->andReturn( true )
+			->andSet( 'posts', array_fill( 0, 5, $mock_post ) );
 	}
 }

@@ -114,7 +114,7 @@ class Block {
                 <ul>
                 <?php
 
-                 foreach ( array_slice( $query->get_posts(), 0, 5 ) as $post ) :
+                 foreach ( array_slice( $query->posts, 0, 5 ) as $post ) :
                     ?><li><?php echo $post->post_title ?></li><?php
 				endforeach;
 			endif;
