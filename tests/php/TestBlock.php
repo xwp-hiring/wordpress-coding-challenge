@@ -91,7 +91,7 @@ class TestBlock extends TestCase {
 					'className'           => self::CLASS_NAME,
 					'displayTemplateMode' => true,
 				],
-				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><p>There are 0 Posts.</p><p>There are 0 Pages.</p><p>There are 0 Media.</p><p>The current post ID is ' . self::POST_ID . '.</p></div>',
+				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><ul><li>There are 0 Posts.</li><li>There are 0 Pages.</li><li>There are 0 Media.</li></ul><p>The current post ID is ' . self::POST_ID . '.</p>',
 			],
 			'with_post_counts' => [
 				63,
@@ -101,7 +101,7 @@ class TestBlock extends TestCase {
 					'className'           => self::CLASS_NAME,
 					'displayTemplateMode' => true,
 				],
-				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><p>There are 63 Posts.</p><p>There are 13 Pages.</p><p>There are 139 Media.</p><p>The current post ID is ' . self::POST_ID . '.</p></div>',
+				'<div class="' . self::CLASS_NAME . '"><h2>Post Counts</h2><ul><li>There are 63 Posts.</li><li>There are 13 Pages.</li><li>There are 139 Media.</li></ul><p>The current post ID is ' . self::POST_ID . '.</p>',
 			],
 		];
 	}
@@ -120,6 +120,7 @@ class TestBlock extends TestCase {
 	 */
 	public function test_render_callback( $post_count, $page_count, $attachment_count, $attributes, $expected ) {
 		$_GET = [ 'post_id' => self::POST_ID ];
+		WP_Mock::userFunction( 'get_the_ID' );
 		WP_Mock::userFunction( 'get_post_types' )
 			->with( [ 'public' => true ] )
 			->andReturn( [ 'post', 'page', 'attachment' ] );
@@ -133,11 +134,14 @@ class TestBlock extends TestCase {
 		$this->mock_get_posts( $attachment_count );
 
 		Mockery::mock( 'overload:WP_Block' );
+		Mockery::mock('overload:WP_Query' )
+			->shouldReceive( 'have_posts' )
+			->andReturn( false );
 		$actual = $this->instance->render_callback( $attributes, '', new WP_Block() );
 		$actual = preg_replace( '/(?<=>)\s+/', '', $actual );
 		$actual = preg_replace( '/\s+(?=<)/', '', $actual );
 
-		$this->assertEquals(
+		$this->assertStringContainsString(
 			$expected,
 			$actual
 		);

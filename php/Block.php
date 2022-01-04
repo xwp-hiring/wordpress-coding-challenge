@@ -108,13 +108,13 @@ class Block {
 				  'post__not_in' => [ get_the_ID() ],
 			));
 
-			if ( $query->found_posts ) :
+			if ( $query->have_posts() ) :
 				?>
 				 <h2>5 posts with the tag of foo and the category of baz</h2>
                 <ul>
                 <?php
 
-                 foreach ( array_slice( $query->posts, 0, 5 ) as $post ) :
+                 foreach ( array_slice( $query->get_posts(), 0, 5 ) as $post ) :
                     ?><li><?php echo $post->post_title ?></li><?php
 				endforeach;
 			endif;
