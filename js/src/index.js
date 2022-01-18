@@ -7,8 +7,10 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { apiVersion, category, icon, name } from '../../block.json';
+import block from '../../block.json';
 import Edit from './edit';
+
+const { apiVersion, category, icon, name } = block;
 
 /**
  * Registers the dynamic block 'Site Counts'.

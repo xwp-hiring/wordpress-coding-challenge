@@ -108,7 +108,7 @@ class Block {
 				  'post__not_in' => [ get_the_ID() ],
 			));
 
-			if ( $query->found_posts ) :
+			if ( $query->have_posts() ) :
 				?>
 				 <h2>5 posts with the tag of foo and the category of baz</h2>
                 <ul>
