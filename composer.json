@@ -20,12 +20,6 @@
     "php": ">=7.3",
     "composer/installers": "^1.7"
   },
-  "config": {
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true,
-      "composer/installers": true
-    }
-  },
   "autoload": {
     "psr-4": {
       "XWP\\SiteCounts\\": "php/"
@@ -52,6 +46,10 @@
     ]
   },
   "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
     "sort-packages": true
   }
 }
