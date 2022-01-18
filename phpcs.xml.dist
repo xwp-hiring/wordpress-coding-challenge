@@ -9,7 +9,8 @@
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
 	</rule>
 
-	<rule ref="WordPress-Docs"></rule>
+	<rule ref="WordPress-Docs" />
+	<rule ref="WordPress-VIP-Go" />
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
