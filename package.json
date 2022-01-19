@@ -35,12 +35,12 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.0.0",
-    "@wordpress/block-editor": "6.1.13",
-    "@wordpress/blocks": "9.1.5",
-    "@wordpress/eslint-plugin": "9.0.6",
-    "@wordpress/i18n": "4.1.1",
-    "@wordpress/scripts": "16.1.4",
-    "@wordpress/server-side-render": "2.1.11",
+    "@wordpress/block-editor": "^8.0.13",
+    "@wordpress/blocks": "^11.1.5",
+    "@wordpress/eslint-plugin": "^9.3.0",
+    "@wordpress/i18n": "^4.2.4",
+    "@wordpress/scripts": "^19.2.3",
+    "@wordpress/server-side-render": "^3.0.17",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.2"
   },
