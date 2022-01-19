@@ -35,18 +35,19 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@wordpress/scripts": "^19.2.3",
+    "acorn": "^8.7.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
     "@wordpress/block-editor": "^8.0.13",
     "@wordpress/blocks": "^11.1.5",
     "@wordpress/eslint-plugin": "^9.3.0",
     "@wordpress/i18n": "^4.2.4",
-    "@wordpress/scripts": "^19.2.3",
     "@wordpress/server-side-render": "^3.0.17",
-    "acorn": "^8.7.0",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.5.1",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "typescript": "^4.5.4"
-  },
-  "dependencies": {}
+    "react-dom": "^16.14.0"
+  }
 }
