@@ -33,16 +33,21 @@
     "test:php:coverage": "composer test"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.14.1",
-    "@testing-library/react": "12.0.0",
-    "@wordpress/block-editor": "6.1.13",
-    "@wordpress/blocks": "9.1.5",
-    "@wordpress/eslint-plugin": "9.0.6",
-    "@wordpress/i18n": "4.1.1",
-    "@wordpress/scripts": "16.1.4",
-    "@wordpress/server-side-render": "2.1.11",
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@wordpress/eslint-plugin": "9.3.0",
+    "@wordpress/scripts": "19.2.3",
+    "acorn": "8.7.0",
     "npm-run-all": "4.1.5",
-    "prettier": "2.3.2"
+    "prettier": "2.5.1",
+    "typescript": "4.5.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@wordpress/block-editor": "8.0.13",
+    "@wordpress/blocks": "11.1.5",
+    "@wordpress/i18n": "4.2.4",
+    "@wordpress/server-side-render": "3.0.17",
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  }
 }
