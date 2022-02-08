@@ -45,7 +45,6 @@
   "dependencies": {
     "@wordpress/block-editor": "8.0.13",
     "@wordpress/blocks": "11.1.5",
-    "@wordpress/i18n": "4.2.4",
     "@wordpress/server-side-render": "3.0.17",
     "react": "16.14.0",
     "react-dom": "16.14.0"
