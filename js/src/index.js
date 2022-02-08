@@ -10,21 +10,10 @@ import { __ } from '@wordpress/i18n';
 import block from '../../block.json';
 import Edit from './edit';
 
-const { apiVersion, category, icon, name } = block;
-
 /**
  * Registers the dynamic block 'Site Counts'.
  */
-registerBlockType( name, {
-	apiVersion,
-	title: __( 'Site Counts', 'site-counts' ),
-	description: __( 'Counts of posts and taxonomies', 'site-counts' ),
-	category,
-	icon,
-	keywords: [
-		__( 'data', 'site-counts' ),
-		__( 'statistics', 'site-counts' ),
-	],
+registerBlockType( block.name, {
 	edit: Edit,
 
 	/**
