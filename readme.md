@@ -1,7 +1,23 @@
-# Site Counts
+# WordPress Coding Challenge - Site Counts
 
 [![CI/CD Pipeline](https://github.com/xwp-hiring/coding-challenge/actions/workflows/ci.yaml/badge.svg)](https://github.com/xwp-hiring/coding-challenge/actions/workflows/ci.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/xwp-hiring/coding-challenge/badge.svg?branch=develop)](https://coveralls.io/github/xwp-hiring/coding-challenge?branch=develop)
+
+# Instructions
+
+This exercise tests your knowledge of security and performance in WordPress sites. The expectation is that you spend approximately one hour on this task.
+If you have not had the chance to work on large-scale projects or products you may be interested in brushing up on our [Engineering Best Practices](https://docs.xwp.co/engineering-best-practices/). You may also find the [WordPress VIP documentation](https://docs.wpvip.com/technical-references/) useful.
+
+To begin, please fork this repo https://github.com/xwp-hiring/coding-challenge into your GitHub account as a public repository.
+
+For this exercise we only want you to look at the `XWP\SiteCounts\Block::render_callback()` function and fix whatever problems you see, and make improvements as needed to solve scaling, security, performance, and coding standards issues. We follow the WordPress VIP coding standards which are additive to the core WordPress standards.
+There's no need to add any feature at this stage.
+
+Please only make changes to the render_callback() function, and ignore the PHPUnit tests for now.
+When you're done, open a PR to the develop branch of your fork with your improvements. 
+To complete the exercise, reply to the email you received with a link to the repository.
+
+## Description
 
 A WordPress block showing counts of posts and taxonomies.
 
